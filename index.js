@@ -26,7 +26,10 @@ const returnToStartState = () => {
 };
 containerDiv.addEventListener("click", (e) => {
   const currentElementId = e.target.id;
-  if (!selectedDiv.includes(currentElementId)) {
+  if (
+    !selectedDiv.includes(currentElementId) &&
+    currentElementId !== "container"
+  ) {
     if (isFirstPlayer) {
       document.getElementById(currentElementId).innerText = "X";
       nextText.innerText = "Next Player:O";
@@ -56,7 +59,5 @@ containerDiv.addEventListener("click", (e) => {
       clearBoard(selectedDiv);
       returnToStartState();
     }
-  } else {
-    alert("You cannot modify that");
   }
 });
