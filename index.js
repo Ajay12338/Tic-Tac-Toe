@@ -61,3 +61,23 @@ containerDiv.addEventListener("click", (e) => {
     }
   }
 });
+containerDiv.addEventListener("mouseover", (e) => {
+  const currentElementId = e.target.id;
+  if (
+    currentElementId !== "container" &&
+    !selectedDiv.includes(currentElementId)
+  ) {
+    document.getElementById(e.target.id).textContent = isFirstPlayer
+      ? "X"
+      : "O";
+  }
+});
+containerDiv.addEventListener("mouseout", (e) => {
+  const currentElementId = e.target.id;
+  if (
+    currentElementId !== "container" &&
+    !selectedDiv.includes(currentElementId)
+  ) {
+    document.getElementById(e.target.id).textContent = "";
+  }
+});
